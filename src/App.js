@@ -1,17 +1,10 @@
 import "./App.css";
-
-import ReactDataGridApp from "./React-Grid/react-data-grid";
-
-import getDataFromApi from "./React-Grid/gridClient";
-// import people from './people';
-
-function App() {
-  const data = getDataFromApi();
-  console.log(" api data ", data);
+import ReactDataGridContainer from "./React-Grid/react-data-grid-container";
+function App() {  
 
   return (
     <div className="App">
-      <ReactDataGridApp data={data} />
+      <ReactDataGridContainer />
     </div>
   );
 }

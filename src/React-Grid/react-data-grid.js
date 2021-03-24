@@ -40,7 +40,6 @@ class ReactDataGridApp extends React.Component {
       dataSource: initialData,
     };
   }
-  //   initialData = useCallback(filter(people, defaultFilterValue), []);
 
   onFilterValueChange = (data, events) => {
     console.log("filter data", data);
@@ -50,6 +49,10 @@ class ReactDataGridApp extends React.Component {
       dataSource: filteredData,
     });
   };
+
+  static getDerivedStateFromProps(props, state) {
+    return { dataSource: props.data };
+  }
 
   render() {
     // const [dataSource, setDataSource] = useState(initialData);
@@ -62,8 +65,7 @@ class ReactDataGridApp extends React.Component {
     //   setDataSource(data);
     // }, []);
 
-    const dataSource = this.state.dataSource;
-    const filterValue = this.state.filterValue;
+    const { dataSource, filterValue } = this.state;
 
     return (
       <ReactDataGrid
