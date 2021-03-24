@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import ReactDataGridApp from "./React-Grid/react-data-grid";
+
+import getDataFromApi from "./React-Grid/gridClient";
+// import people from './people';
 
 function App() {
+  const data = getDataFromApi();
+  console.log(" api data ", data);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReactDataGridApp data={data} />
     </div>
   );
 }
