@@ -1,15 +1,45 @@
 import { Component, Fragment } from "react";
 import peopleTemplate from "../peopleTemplate";
 
+import filter from "@inovua/reactdatagrid-community/filter";
+
 import ReactDataGridApp from "./react-data-grid";
 import getDataFromApi from "./gridClient";
 
+const columns = [
+  {
+    name: "id",
+    header: "Id",
+    defaultVisible: false,
+    type: "number",
+    defaultWidth: 80,
+  },
+  { name: "name", header: "Name", defaultFlex: 1 },
+  { name: "email", header: "Email", defaultFlex: 1 },
+  { name: "age", header: "Age", type: "number", defaultFlex: 1 },
+  {
+    id: "desc",
+    header: "Description",
+    defaultFlex: 2,
+    render: ({ data }) =>
+      data.name + ", aged: " + data.age + ". Lives in " + data.country,
+  },
+];
+
+const defaultFilterValue = [
+  { name: "name", operator: "startsWith", type: "string", value: "" },
+  { name: "age", operator: "gte", type: "number", value: undefined },
+];
+
 class ReactDataGridContainer extends Component {
+
   constructor(props) {
     super(props);
+    const initialData = filter(peopleTemplate, defaultFilterValue);
     this.state = {
       isFetching: true,
-      data: peopleTemplate,
+      filterValue: defaultFilterValue,
+      dataSource: initialData,
     };
   }
 
@@ -18,22 +48,26 @@ class ReactDataGridContainer extends Component {
     this.setState({
       isFetching: false,
       data: data,
+      dataSource: data,
     });
   }
 
+  onFilterValueChange = (data, events) => {
+    const filteredData = filter(this.state.data, data);
+    this.setState({
+      filterValue: data,
+      dataSource: filteredData
+    });
+  };
+
   render() {
-    const data = this.state.data;
     return (
       <Fragment>
-        {data.length && data.length > 0 ? (
+        {
           <div className="App">
-            <ReactDataGridApp data={data} />
+            <ReactDataGridApp columns={columns} onFilterValueChange={this.onFilterValueChange} {...this.state} />
           </div>
-        ) : (
-          <div className="App">
-            <ReactDataGridApp data={peopleTemplate} />
-          </div>
-        )}
+        }
       </Fragment>
     );
   }
