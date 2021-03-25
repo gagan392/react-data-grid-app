@@ -19,6 +19,7 @@ class ReactDataGridApp extends React.Component {
         onFilterValueChange={onFilterValueChange}
         filterValue={filterValue}
         sortable={true}
+        pagination={true}
       />
     );
   }
