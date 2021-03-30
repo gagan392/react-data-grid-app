@@ -4,8 +4,6 @@ import peopleTemplate from "../peopleTemplate";
 import filter from "@inovua/reactdatagrid-community/filter";
 
 import ReactDataGridApp from "./react-data-grid";
-import HeaderBar from "./header";
-import Footer from "./footer-material";
 import getDataFromApi from "./gridClient";
 
 const columns = [
@@ -67,9 +65,7 @@ class ReactDataGridContainer extends Component {
       <Fragment>
         {
           <div className="App">
-            <HeaderBar headerText={'City Leader'} />
             <ReactDataGridApp columns={columns} onFilterValueChange={this.onFilterValueChange} {...this.state} />
-            <Footer footerText={'© 2020 FooBar Company L.P. and its affiliates.'}/>
           </div>
         }
       </Fragment>
