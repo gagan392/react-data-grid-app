@@ -1,75 +1,75 @@
 const people = [{
-    'id': 35701,
+    'id': 1,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35702,
+    'id': 2,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35703,
+    'id': 3,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35704,
+    'id': 4,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35705,
+    'id': 5,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35706,
+    'id': 6,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35707,
+    'id': 7,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35708,
+    'id': 8,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35709,
+    'id': 9,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35710,
+    'id': 10,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35711,
+    'id': 11,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35712,
+    'id': 12,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35713,
+    'id': 13,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35714,
+    'id': 14,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35715,
+    'id': 15,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
