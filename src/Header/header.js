@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import generatePDF from "./../services/reportGenerator";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HeaderBar(props) {
   const classes = useStyles();
+  console.log(" pdf data ", props.pdfData);
 
   return (
     <div className={classes.root}>
@@ -32,6 +35,7 @@ export default function HeaderBar(props) {
           <Typography variant="h6" className={classes.title}>
             {props.headerText}
           </Typography>
+          <Button color="inherit" onClick={() => generatePDF(props.pdfData)} >Generate report</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

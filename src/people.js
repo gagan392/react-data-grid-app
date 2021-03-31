@@ -1,50 +1,50 @@
 const people = [{
-    'id': 35703,
+    'id': 35701,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35711,
+    'id': 35702,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35714,
+    'id': 35703,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35703,
+    'id': 35704,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35711,
+    'id': 35705,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35714,
+    'id': 35706,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35703,
+    'id': 35707,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35711,
+    'id': 35708,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35714,
+    'id': 35709,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35703,
+    'id': 35710,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
@@ -54,25 +54,25 @@ const people = [{
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35714,
+    'id': 35712,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
   },{
-    'id': 35703,
+    'id': 35713,
     'age': 11800,
     'email': 'Los Angeles',
     'name': 'California'
   }, {
-    'id': 35711,
+    'id': 35714,
     'age': 16050,
     'name': 'California',
     'email': 'San Jose'
   }, {
-    'id': 35714,
+    'id': 35715,
     'age': 14750,
     'name': 'Nevada',
     'email': 'Las Vegas'
-  }]
+  },]
 
   export default people;
