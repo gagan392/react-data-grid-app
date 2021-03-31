@@ -1,52 +1,78 @@
-import React from 'react';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import React from "react";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF'
+    flexDirection: "row",
+    backgroundColor: "#FFFFFF",
   },
   section: {
     margin: 10,
     padding: 10,
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
+  headerContainer: {
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    width: 500,
+    alignItems: "center",
+    backgroundColor: "#00ace6",
+    margin: 20,
+    height: 25,
+  },
+  headerItem: {
+    width: 100,
+  },
+  dataContainer: {
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    width: 500,
+    alignItems: "center",
+    backgroundColor: "#efeff5",
+    margin: "10 20 10 20",
+    height: 25,
+  },
+  dataItem: {
+    width: 100,
+  },
 });
 
 // Create Document Component
 export default function PdfDocument(props) {
+
+  const renderPreview = (data) => {
+    return Object.keys(data).map((key) => {
+      console.log(`key: ${key}, value: ${JSON.stringify(data[key])}`);
+      return (
+        <View style={styles.dataContainer}>
+          <Text style={styles.dataItem}>{data[key].id}</Text>
+          <Text style={styles.dataItem}>{data[key].name}</Text>
+          <Text style={styles.dataItem}>{data[key].age}</Text>
+          <Text style={styles.dataItem}>{data[key].email}</Text>
+        </View>
+      );
+    });
+  };
+
   return (
     <Document>
       <Page style={styles.page}>
-        {props.data
-          ? props.data.map((a, index) => {
-              return (
-                <View key={index} style={styles.movieContainer}>
-                  <View style={styles.movieDetails}>
-                    <Text style={styles.movieTitle}>{a.title}</Text>
-                    <View style={styles.subtitle}>
-                      <View style={styles.vote}>
-                        <Text style={styles.vote_pop_text}>Popularity</Text>
-                        <Text style={styles.vote_pop}>{a.popularity}</Text>
-                      </View>
-                    </View>
-                    <View style={styles.overviewContainer}>
-                      <Text style={styles.movieOverview}>{a.overview}</Text>
-                    </View>
-                    <View style={styles.detailsFooter}>
-                      <Text style={styles.lang}>
-                        Language: {a.original_language.toUpperCase()}
-                      </Text>
-                      <Text style={styles.vote_average}>
-                        Average Votes: {a.vote_average}
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              );
-            })
-          : ""}
+        <View>
+          <View style={styles.headerContainer}>
+            <Text className="id" style={styles.headerItem}>ID</Text>
+            <Text className="name" style={styles.headerItem}>Name</Text>
+            <Text className="age" style={styles.headerItem}>Age</Text>
+            <Text className="email" style={styles.headerItem}>Email</Text>
+          </View>
+          <View>
+            {Object.keys(props.data).length > 0
+              ? renderPreview(props.data)
+              : ""}
+          </View>
+        </View>
       </Page>
     </Document>
   );

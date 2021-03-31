@@ -8,7 +8,7 @@ const gridStyle = { minHeight: 550 };
 class ReactDataGridApp extends React.Component {
 
   render() {
-    const { dataSource, filterValue, columns, onFilterValueChange } = this.props;
+    const { dataSource, filterValue, columns, onFilterValueChange, selected, onSelectionChange } = this.props;
 
     return (
       <ReactDataGrid
@@ -20,6 +20,9 @@ class ReactDataGridApp extends React.Component {
         filterValue={filterValue}
         sortable={true}
         pagination={true}
+        selected={selected}
+        checkboxColumn
+        onSelectionChange={onSelectionChange}
       />
     );
   }
