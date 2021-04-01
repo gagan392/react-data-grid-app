@@ -1,78 +1,94 @@
-const people = [{
-    'id': 1,
-    'age': 11800,
-    'email': 'Los Angeles',
-    'name': 'California'
-  }, {
-    'id': 2,
-    'age': 16050,
-    'name': 'California',
-    'email': 'San Jose'
-  }, {
-    'id': 3,
-    'age': 14750,
-    'name': 'Nevada',
-    'email': 'Las Vegas'
-  },{
-    'id': 4,
-    'age': 11800,
-    'email': 'Los Angeles',
-    'name': 'California'
-  }, {
-    'id': 5,
-    'age': 16050,
-    'name': 'California',
-    'email': 'San Jose'
-  }, {
-    'id': 6,
-    'age': 14750,
-    'name': 'Nevada',
-    'email': 'Las Vegas'
-  },{
-    'id': 7,
-    'age': 11800,
-    'email': 'Los Angeles',
-    'name': 'California'
-  }, {
-    'id': 8,
-    'age': 16050,
-    'name': 'California',
-    'email': 'San Jose'
-  }, {
-    'id': 9,
-    'age': 14750,
-    'name': 'Nevada',
-    'email': 'Las Vegas'
-  },{
-    'id': 10,
-    'age': 11800,
-    'email': 'Los Angeles',
-    'name': 'California'
-  }, {
-    'id': 11,
-    'age': 16050,
-    'name': 'California',
-    'email': 'San Jose'
-  }, {
-    'id': 12,
-    'age': 14750,
-    'name': 'Nevada',
-    'email': 'Las Vegas'
-  },{
-    'id': 13,
-    'age': 11800,
-    'email': 'Los Angeles',
-    'name': 'California'
-  }, {
-    'id': 14,
-    'age': 16050,
-    'name': 'California',
-    'email': 'San Jose'
-  }, {
-    'id': 15,
-    'age': 14750,
-    'name': 'Nevada',
-    'email': 'Las Vegas'
-  },]
+const people = [
+  {
+    id: 21,
+    age: 11800,
+    email: "Los Angeles",
+    name: "California",
+  },
+  {
+    id: 32,
+    age: 16050,
+    name: "California",
+    email: "San Jose",
+  },
+  {
+    id: 43,
+    age: 14750,
+    name: "Nevada",
+    email: "Las Vegas",
+  },
+  {
+    id: 54,
+    age: 11800,
+    email: "Los Angeles",
+    name: "California",
+  },
+  {
+    id: 65,
+    age: 16050,
+    name: "California",
+    email: "San Jose",
+  },
+  {
+    id: 76,
+    age: 14750,
+    name: "Nevada",
+    email: "Las Vegas",
+  },
+  {
+    id: 87,
+    age: 11800,
+    email: "Los Angeles",
+    name: "California",
+  },
+  {
+    id: 98,
+    age: 16050,
+    name: "California",
+    email: "San Jose",
+  },
+  {
+    id: 99,
+    age: 14750,
+    name: "Nevada",
+    email: "Las Vegas",
+  },
+  {
+    id: 110,
+    age: 11800,
+    email: "Los Angeles",
+    name: "California",
+  },
+  {
+    id: 111,
+    age: 16050,
+    name: "California",
+    email: "San Jose",
+  },
+  {
+    id: 112,
+    age: 14750,
+    name: "Nevada",
+    email: "Las Vegas",
+  },
+  {
+    id: 113,
+    age: 11800,
+    email: "Los Angeles",
+    name: "California",
+  },
+  {
+    id: 114,
+    age: 16050,
+    name: "California",
+    email: "San Jose",
+  },
+  {
+    id: 115,
+    age: 14750,
+    name: "Nevada",
+    email: "Las Vegas",
+  },
+];
 
-  export default people;
+export default people;
