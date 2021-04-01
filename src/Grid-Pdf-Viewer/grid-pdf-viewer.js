@@ -47,11 +47,11 @@ export default function PdfDocument(props) {
     return Object.keys(data).map((key) => {
       console.log(`key: ${key}, value: ${JSON.stringify(data[key])}`);
       return (
-        <View style={styles.dataContainer}>
-          <Text style={styles.dataItem}>{data[key].id}</Text>
-          <Text style={styles.dataItem}>{data[key].name}</Text>
-          <Text style={styles.dataItem}>{data[key].age}</Text>
-          <Text style={styles.dataItem}>{data[key].email}</Text>
+        <View key={key} style={styles.dataContainer}>
+          <Text key={`id_${key}`} style={styles.dataItem}>{data[key].id}</Text>
+          <Text key={`name_${key}`} style={styles.dataItem}>{data[key].name}</Text>
+          <Text key={`age_${key}`} style={styles.dataItem}>{data[key].age}</Text>
+          <Text key={`email_${key}`} style={styles.dataItem}>{data[key].email}</Text>
         </View>
       );
     });
