@@ -8,13 +8,7 @@ import ReactDataGridApp from "./react-data-grid";
 import getDataFromApi from "./gridClient";
 
 const columns = [
-  {
-    name: "id",
-    header: "Id",
-    defaultVisible: false,
-    type: "number",
-    defaultWidth: 80,
-  },
+  { name: "id", header: "Id", type: "number", defaultVisible: false, defaultWidth: 80 },
   { name: "name", header: "Name", defaultFlex: 1 },
   { name: "email", header: "Email", defaultFlex: 1 },
   { name: "age", header: "Age", type: "number", defaultFlex: 1 },
@@ -45,34 +39,26 @@ class ReactDataGridContainer extends Component {
     });
   }
 
-  onFilterValueChange = (data, events) => {
-    const filteredData = filter(this.state.data, data);
-    this.setState({
-      filterValue: data,
-      dataSource: filteredData
-    });
-  };
-
   onSelectionChange = ({ selected, data }) => {
-    console.log("data ", data);
-    console.log("selected ", selected);
     // if condition to handle select all
     if (selected === true) {
-      this.setState({ selected: data });
       this.props.onDataChange(data);
     } else {
-      this.setState({ selected: selected });
       this.props.onDataChange(selected);
     }
   };
 
   render() {
+    const { dataSource, filterValue, isFetching } = this.state;
     return (
       <ReactDataGridApp
         columns={columns}
-        onFilterValueChange={this.onFilterValueChange}
+        dataSource={dataSource}
+        filterValue={filterValue}
+        isFetching={isFetching}
+        pagination
+        checkboxColumn
         onSelectionChange={this.onSelectionChange}
-        {...this.state}
       />
     );
   }
