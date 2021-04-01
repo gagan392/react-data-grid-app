@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,6 +21,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HeaderBar(props) {
   const classes = useStyles();
+  const [back, setBack] = useState(false);
+  const [next, setNext] = useState(true)
+  
+  const nextBtnHandler = () => {
+    props.nextBtnHandler();
+    setBack(true);
+    setNext(false);
+  }
+
+  const backBtnHandler = () => {
+    props.backBtnHandler();
+    setBack(false);
+    setNext(true);
+  }
 
   return (
     <div className={classes.root}>
@@ -32,6 +46,9 @@ export default function HeaderBar(props) {
           <Typography variant="h6" className={classes.title}>
             {props.headerText}
           </Typography>
+          {Object.keys(props.pdfData).length > 0 && next && <Button color="inherit" onClick={nextBtnHandler}>Next</Button>}
+          {back && <Button color="inherit" onClick={backBtnHandler}>Back</Button>}
+          {/* <Button color="inherit" onClick={() => generatePDF(props.pdfData)} >Generate report</Button> */}
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

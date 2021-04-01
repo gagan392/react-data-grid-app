@@ -1,4 +1,5 @@
-import { Component, Fragment } from "react";
+// eslint-disable-file
+import { Component } from "react";
 import peopleTemplate from "../peopleTemplate";
 
 import filter from "@inovua/reactdatagrid-community/filter";
@@ -7,32 +8,17 @@ import ReactDataGridApp from "./react-data-grid";
 import getDataFromApi from "./gridClient";
 
 const columns = [
-  {
-    name: "id",
-    header: "Id",
-    defaultVisible: false,
-    type: "number",
-    defaultWidth: 80,
-  },
+  { name: "id", header: "Id", type: "number", defaultVisible: false, defaultWidth: 80 },
   { name: "name", header: "Name", defaultFlex: 1 },
   { name: "email", header: "Email", defaultFlex: 1 },
   { name: "age", header: "Age", type: "number", defaultFlex: 1 },
-  {
-    id: "desc",
-    header: "Description",
-    defaultFlex: 2,
-    render: ({ data }) =>
-      data.name + ", aged: " + data.age + ". Lives in " + data.country,
-  },
 ];
 
 const defaultFilterValue = [
   { name: "name", operator: "startsWith", type: "string", value: "" },
   { name: "age", operator: "gte", type: "number", value: undefined },
 ];
-
 class ReactDataGridContainer extends Component {
-
   constructor(props) {
     super(props);
     const initialData = filter(peopleTemplate, defaultFilterValue);
@@ -40,6 +26,7 @@ class ReactDataGridContainer extends Component {
       isFetching: true,
       filterValue: defaultFilterValue,
       dataSource: initialData,
+      selected: {},
     };
   }
 
@@ -52,23 +39,27 @@ class ReactDataGridContainer extends Component {
     });
   }
 
-  onFilterValueChange = (data, events) => {
-    const filteredData = filter(this.state.data, data);
-    this.setState({
-      filterValue: data,
-      dataSource: filteredData
-    });
+  onSelectionChange = ({ selected, data }) => {
+    // if condition to handle select all
+    if (selected === true) {
+      this.props.onDataChange(data);
+    } else {
+      this.props.onDataChange(selected);
+    }
   };
 
   render() {
+    const { dataSource, filterValue, isFetching } = this.state;
     return (
-      <Fragment>
-        {
-          <div className="App">
-            <ReactDataGridApp columns={columns} onFilterValueChange={this.onFilterValueChange} {...this.state} />
-          </div>
-        }
-      </Fragment>
+      <ReactDataGridApp
+        columns={columns}
+        dataSource={dataSource}
+        filterValue={filterValue}
+        isFetching={isFetching}
+        pagination
+        checkboxColumn
+        onSelectionChange={this.onSelectionChange}
+      />
     );
   }
 }
